@@ -4,9 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
-	"path/filepath"
 )
 
 var rxVersion = regexp.MustCompile(`^v\d+\.\d+\.\d$`)
@@ -29,7 +29,7 @@ func main1(fname string) error {
 				if strings.Contains(fname, "ja") {
 					fmt.Println("(Japanese)")
 				} else {
-					fmt.Println("(Enlish)")
+					fmt.Println("(English)")
 				}
 				version = line
 			} else {
