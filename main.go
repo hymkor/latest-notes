@@ -47,21 +47,26 @@ func main1(fname string) error {
 	return sc.Err()
 }
 
-func mains() error {
-	filenames, err := filepath.Glob("release_note*.md")
-	if err != nil {
-		return err
+func mains(args []string) error {
+	if len(args) <= 0 {
+		args = []string{"release_note*.md"}
 	}
-	for _, fname := range filenames {
-		if err := main1(fname); err != nil {
+	for _, arg1 := range args {
+		filenames, err := filepath.Glob(arg1)
+		if err != nil {
 			return err
+		}
+		for _, fname := range filenames {
+			if err := main1(fname); err != nil {
+				return err
+			}
 		}
 	}
 	return nil
 }
 
 func main() {
-	if err := mains(); err != nil {
+	if err := mains(os.Args[1:]); err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
 		os.Exit(1)
 	}
