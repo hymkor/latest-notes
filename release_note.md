@@ -1,6 +1,8 @@
 Release notes
 =============
 
+- Add `-pattern` option
+
 v0.0.2
 ------
 Feb 12, 2026
