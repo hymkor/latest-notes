@@ -24,7 +24,7 @@ func main1(fname string, rx *regexp.Regexp) error {
 		line := sc.Text()
 		if rx.MatchString(line) {
 			if version == "" {
-				fmt.Printf("### Changes in %s ", line)
+				fmt.Printf("## Changes in %s ", line)
 				if strings.Contains(fname, "ja") {
 					fmt.Println("(Japanese)")
 				} else {
