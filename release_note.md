@@ -1,6 +1,8 @@
 Release notes
 =============
 
+- Add `cmd/bump/main.go` (#2)
+
 v0.0.3
 ------
 Feb 12, 2026
