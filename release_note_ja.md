@@ -1,6 +1,10 @@
 Release notes
 =============
 
+v0.0.4
+------
+Feb 14, 2026
+
 - `cmd/bump/main.go` を追加 (#2)
 - 見出しを変更: `### Changes in ...` → `## Changes in ...` (#3)
 

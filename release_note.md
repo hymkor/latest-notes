@@ -1,6 +1,10 @@
 Release notes
 =============
 
+v0.0.4
+------
+Feb 14, 2026
+
 - Add `cmd/bump/main.go` (#2)
 - Changed header: `### Changes in ...` → `## Changes in ...` (#3)
 
