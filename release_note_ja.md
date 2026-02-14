@@ -2,6 +2,7 @@ Release notes
 =============
 
 - `cmd/bump/main.go` を追加 (#2)
+- 見出しを変更: `### Changes in ...` → `## Changes in ...` (#3)
 
 v0.0.3
 ------

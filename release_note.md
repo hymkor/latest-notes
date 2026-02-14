@@ -2,6 +2,7 @@ Release notes
 =============
 
 - Add `cmd/bump/main.go` (#2)
+- Changed header: `### Changes in ...` → `## Changes in ...` (#3)
 
 v0.0.3
 ------
