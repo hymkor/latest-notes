@@ -1,6 +1,12 @@
 Release notes
 =============
 
+v0.0.5
+------
+Feb 18, 2026
+
+- `cmd/bump/main.go` の機能を latest-notes 本体へ統合。`-gosrc` の利用で bump の提供していた、`var version="現在のバージョン(+ -suffix が指定する接尾語)"` だけのソースを出力できるようにした
+
 v0.0.4
 ------
 Feb 14, 2026

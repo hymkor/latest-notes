@@ -23,7 +23,6 @@ EXE:=$(shell $(GO) env GOEXE)
 
 define _build
 	$(SET) "CGO_ENABLED=0" && $(GO) build $(GOOPT)
-	$(SET) "CGO_ENABLED=0" && $(GO) build -C cmd/bump -o $(CURDIR) $(GOOPT)
 
 endef
 
@@ -33,7 +32,7 @@ build:
 
 _dist:
 	$(call _build)
-	zip -9 $(NAME)-$(VERSION)-$(GOOS)-$(GOARCH).zip $(NAME)$(EXE) bump$(EXE)
+	zip -9 $(NAME)-$(VERSION)-$(GOOS)-$(GOARCH).zip $(NAME)$(EXE)
 
 dist:
 	$(SET) "GOOS=windows" && $(SET) "GOARCH=386"   && $(MAKE) _dist
@@ -42,7 +41,10 @@ dist:
 	$(SET) "GOOS=linux"   && $(SET) "GOARCH=amd64" && $(MAKE) _dist
 
 clean:
-	$(DEL) *.zip $(NAME)$(EXE) bump$(EXE)
+	$(DEL) *.zip $(NAME)$(EXE)
+
+bump:
+	"./latest-notes" -gosrc main -suffix "-goinstall" > version.go
 
 release:
 	"./latest-notes" | gh release create -d --notes-file - -t $(VERSION) $(VERSION) $(wildcard $(NAME)-$(VERSION)-*.zip)
