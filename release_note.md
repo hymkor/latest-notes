@@ -1,6 +1,13 @@
 Release notes
 =============
 
+v0.0.5
+------
+Feb 18, 2026
+
+- Integrated `cmd/bump/main.go` functionality into the main `latest-notes` tool.
+- Added `-gosrc` option to output Go source code containing the version constant (e.g., `var version = "v0.0.0(+ -suffix)"`), replacing the need for the separate `bump` tool.
+
 v0.0.4
 ------
 Feb 14, 2026
