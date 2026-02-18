@@ -47,9 +47,9 @@ func printDescription(fname string, rx *regexp.Regexp) error {
 }
 
 var (
-	flagPattern  = flag.String("pattern", `^v\d+\.\d+\.\d+$`, "regular expression for header")
-	flagGoSource = flag.String("gosrc", "", "Output golang source; specify package name; Output as golang source")
-	flagSuffix   = flag.String("suffix", "", "Suffix for version")
+	flagPattern  = flag.String("pattern", `^v\d+\.\d+\.\d+$`, "Regex to identify version headers in the markdown")
+	flagGoSource = flag.String("gosrc", "", "Generate Go source code with the version; specify the package name.\nIf not specified, the tool outputs the latest release description.")
+	flagSuffix   = flag.String("suffix", "", "Suffix to append to the version string (e.g., \"-goinstall\").\nOnly effective when -gosrc is used.")
 )
 
 func mains(args []string) error {
