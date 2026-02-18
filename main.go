@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-func main1(fname string, rx *regexp.Regexp) error {
+func printDescription(fname string, rx *regexp.Regexp) error {
 	fd, err := os.Open(fname)
 	if err != nil {
 		return err
@@ -46,7 +46,11 @@ func main1(fname string, rx *regexp.Regexp) error {
 	return sc.Err()
 }
 
-var flagPattern = flag.String("pattern", `^v\d+\.\d+\.\d+$`, "regular expression for header")
+var (
+	flagPattern  = flag.String("pattern", `^v\d+\.\d+\.\d+$`, "regular expression for header")
+	flagGoSource = flag.String("gosrc", "", "Output golang source; specify package name; Output as golang source")
+	flagSuffix   = flag.String("suffix", "", "Suffix for version")
+)
 
 func mains(args []string) error {
 	rxVersion, err := regexp.Compile(*flagPattern)
@@ -56,13 +60,17 @@ func mains(args []string) error {
 	if len(args) <= 0 {
 		args = []string{"release_note*.md"}
 	}
+
+	if *flagGoSource != "" {
+		return bump(args, rxVersion)
+	}
 	for _, arg1 := range args {
 		filenames, err := filepath.Glob(arg1)
 		if err != nil {
 			return err
 		}
 		for _, fname := range filenames {
-			if err := main1(fname, rxVersion); err != nil {
+			if err := printDescription(fname, rxVersion); err != nil {
 				return err
 			}
 		}
