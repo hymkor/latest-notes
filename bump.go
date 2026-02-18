@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strings"
 )
 
 func findVersion1(fname string, rx *regexp.Regexp) (string, error) {
@@ -46,7 +47,8 @@ func findVersion(args []string, rx *regexp.Regexp) (string, error) {
 }
 
 func makeGoSrc(packageName, version string) {
-	fmt.Printf("package %s\n\nvar version = \"%s\"\n", *flagGoSource, version)
+	version = strings.ReplaceAll(version, `\_`, `_`)
+	fmt.Printf("package %s\n\nvar version = %q\n", *flagGoSource, version)
 }
 
 func bump(args []string, rx *regexp.Regexp) error {
