@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"runtime"
 	"strings"
 )
 
@@ -79,6 +80,11 @@ func mains(args []string) error {
 }
 
 func main() {
+	fmt.Fprintf(os.Stderr, "%s %s-%s-%s\n",
+		os.Args[0],
+		version,
+		runtime.GOOS,
+		runtime.GOARCH)
 	flag.Parse()
 	if err := mains(flag.Args()); err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())

@@ -43,6 +43,9 @@ dist:
 clean:
 	$(DEL) *.zip $(NAME)$(EXE)
 
+bump:
+	"./latest-notes" -gosrc main -suffix "-goinstall" > version.go
+
 release:
 	"./latest-notes" | gh release create -d --notes-file - -t $(VERSION) $(VERSION) $(wildcard $(NAME)-$(VERSION)-*.zip)
 
