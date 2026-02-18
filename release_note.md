@@ -1,6 +1,12 @@
 Release notes
 =============
 
+v0.0.6
+------
+Feb 18, 2026
+
+- Fix: unescape underscores in version string for -gosrc mode
+
 v0.0.5
 ------
 Feb 18, 2026
