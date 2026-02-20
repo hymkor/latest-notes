@@ -20,8 +20,8 @@ func findVersion1(fname string, rx *regexp.Regexp) (string, error) {
 	sc := bufio.NewScanner(fd)
 	for sc.Scan() {
 		line := sc.Text()
-		if rx.MatchString(line) {
-			return line, nil
+		if m := rx.FindStringSubmatch(line); len(m) > 0 {
+			return m[len(m)-1], nil
 		}
 	}
 	return "", sc.Err()

@@ -1,6 +1,8 @@
 Changelog
 =========
 
+- Support extracting version strings from regex capture groups when using `-gosrc` and `-pattern`. (#8)
+
 v0.0.7
 ------
 Feb 20, 2026
