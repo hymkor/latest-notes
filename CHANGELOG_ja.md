@@ -1,6 +1,13 @@
 Changelog
 =========
 
+v0.0.7
+------
+Feb 20, 2026
+
+- 対象とするファイル名に `CHANGELOG*.md` を加えた
+- 変更履歴を記録するファイルを `release_note_en.md`, `release_note_ja.md` から `CHANGELOG.md`, `CHANGELOG_ja.md` へ改名
+
 v0.0.6
 ------
 Feb 18, 2026
