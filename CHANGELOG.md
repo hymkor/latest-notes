@@ -1,5 +1,12 @@
-Release notes
-=============
+Changelog
+=========
+
+v0.0.7
+------
+Feb 20, 2026
+
+- Add `CHANGELOG*.md` as a target filename pattern
+- Rename release note files to `CHANGELOG.md` and `CHANGELOG_ja`.md.
 
 v0.0.6
 ------
