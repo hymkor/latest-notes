@@ -59,7 +59,7 @@ func mains(args []string) error {
 		return err
 	}
 	if len(args) <= 0 {
-		args = []string{"release_note*.md"}
+		args = []string{"CHANGELOG*.md", "release_note*.md"}
 	}
 
 	if *flagGoSource != "" {
